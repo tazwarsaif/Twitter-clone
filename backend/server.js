@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import connectMongoDB from './db/connectMongoDB.js';
 import authRoutes from './routes/auth.routes.js';
+import postRoutes from './routes/post.routes.js';
 import userRoutes from './routes/user.routes.js';
 dotenv.config()
 cloudinary.config({
@@ -20,6 +21,7 @@ app.use(cookieParser())
 
 app.use('/api/auth',authRoutes);
 app.use('/api/users',userRoutes);
+app.use('/api/posts',postRoutes)
 
 app.listen(process.env.PORT,()=>{
     connectMongoDB();
