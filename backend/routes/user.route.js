@@ -3,7 +3,7 @@ import { followUnfollowUser, getSuggestedUsers, getUserProfile, updateUser } fro
 import { protectRoute } from "../middleware/protectRoute.js";
 const router = express.Router();
 
-router.get('/profile/:uesrname',protectRoute,getUserProfile);
+router.get('/profile/:username',protectRoute,getUserProfile);
 router.get('/suggested',protectRoute,getSuggestedUsers);
 router.post('/follow/:id',protectRoute,followUnfollowUser);
 router.post('/update',protectRoute,updateUser);
