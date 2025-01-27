@@ -1,23 +1,33 @@
-
+import { Route, Routes } from "react-router-dom";
+import RightPanel from "./componenets/common/RightPanel";
+import Sidebar from "./componenets/common/Sidebar";
+import LoginPage from "./pages/auth/login/LoginPage";
+import SignUpPage from "./pages/auth/signup/SignUpPage";
+import HomePage from "./pages/home/HomePage";
+import Notification from "./pages/notification/NotificationPage";
+import ProfilePage from "./pages/profile/ProfilePage";
 function App() {
   return (
     <>
-      <div role="alert" className="alert alert-success">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6 shrink-0 stroke-current"
-    fill="none"
-    viewBox="0 0 24 24">
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-  <span>Your purchase has been confirmed!</span>
-</div>
+      <div className="flex max-w-6xl mx-auto">
+        <Sidebar></Sidebar>
+        <Routes>
+          <Route path="/" element={<HomePage></HomePage>}></Route>
+          <Route path="/login" element={<LoginPage></LoginPage>}></Route>
+          <Route path="/signup" element={<SignUpPage></SignUpPage>}></Route>
+          <Route
+            path="/notifications"
+            element={<Notification></Notification>}
+          ></Route>
+          <Route
+            path="/profile/:username"
+            element={<ProfilePage></ProfilePage>}
+          ></Route>
+        </Routes>
+        <RightPanel></RightPanel>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
