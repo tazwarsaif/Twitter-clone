@@ -1,5 +1,8 @@
 ﻿# Twitter-clone
-🚀 Features
+
+ <h3>🐦 Twitter Clone</h3>
+<p>A full-stack Twitter clone built to replicate the core functionalities of the original platform while honing skills in full-stack development. This project focuses on robust error handling, secure data sharing, file structuring, and collaboration between frontend and backend. It also explores features like React Query, state management, and hooks in ReactJS.</p><br>
+<h3>🚀 Features</h3>
 This Twitter clone includes the following core functionalities:
 🖊️ Tweeting
 Users can create and post tweets, similar to the original platform.
