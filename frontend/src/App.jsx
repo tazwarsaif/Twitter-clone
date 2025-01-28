@@ -67,7 +67,7 @@ function App() {
           <Route
             path="/notifications"
             element={
-              !authUser ? (
+              authUser ? (
                 <Notification></Notification>
               ) : (
                 <Navigate to="/login"></Navigate>
@@ -77,7 +77,7 @@ function App() {
           <Route
             path="/profile/:username"
             element={
-              !authUser ? (
+              authUser ? (
                 <ProfilePage></ProfilePage>
               ) : (
                 <Navigate to="/login"></Navigate>
