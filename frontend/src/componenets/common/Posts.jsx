@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
 import PostSkeleton from "../skeletons/PostSkeleton";
 import Post from "./Post";
 
@@ -21,7 +20,7 @@ const Posts = ({ feedType, username, userId }) => {
     refetch,
     isRefetching,
   } = useQuery({
-    queryKey: ["posts"],
+    queryKey: ["posts", feedType],
     queryFn: async () => {
       try {
         const res = await fetch(POST_ENDPOINT);
@@ -34,10 +33,9 @@ const Posts = ({ feedType, username, userId }) => {
         throw new Error(error);
       }
     },
+    enabled: !!feedType,
   });
-  useEffect(() => {
-    refetch();
-  }, [feedType, refetch]);
+
   return (
     <>
       {isLoading && (
@@ -52,9 +50,10 @@ const Posts = ({ feedType, username, userId }) => {
       )}
       {!isLoading && posts && (
         <div>
-          {posts.map((post) => (
-            <Post key={post._id} post={post} />
-          ))}
+          {posts.map((post) => {
+            console.log(post);
+            return <Post key={post._id} post={post} />;
+          })}
         </div>
       )}
     </>

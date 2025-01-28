@@ -38,9 +38,11 @@ const Post = ({ post }) => {
           method: "POST",
         });
         const data = await res.json();
+        console.log(data, "JHASJKDHASJDHAJKSD");
         if (!res.ok) {
           throw new Error(data.error || "Something went wrong");
         }
+
         return data;
       } catch (error) {
         throw new Error(error);
@@ -59,6 +61,7 @@ const Post = ({ post }) => {
           return p;
         });
       });
+      queryClient.invalidateQueries({ queryKey: ["posts"] });
     },
     onError: (error) => {
       toast.error(error.message);
